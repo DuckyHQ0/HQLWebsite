@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Image from "next/image";
+import Link from "next/link";
 import { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://hql.duckyhq.com"),
   title: "HQLauncher",
   description:
-    "I'm dukc. And I'm a versatile designer / web developer skilled in UI, graphic, motion design, and React / Vue",
+    "An open source Minecraft launcher with modern UI and instance/mod management.",
   keywords: [
     "Minecraft",
     "Minecraft launcher",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HQLauncher",
     description:
-      "I'm dukc. And I'm a versatile designer / web developer skilled in UI, graphic, motion design, and React / Vue",
+      "An open source Minecraft launcher with modern UI and instance/mod management.",
     url: "https://hql.duckyhq.com",
     siteName: "dukc",
     images: [
@@ -54,14 +55,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={outfit.className}>
-      <body className="bg-[#050505] text-text-1 overflow-x-hidden overflow-y-auto p-[48px] flex flex-col justify-center items-center justify-items-center">
+      <body className="bg-[#050505] text-text-1 overflow-x-hidden min-h-[150vh] overflow-y-auto p-48 gap-24 flex flex-col justify-start items-center justify-items-center">
         <nav className="max-w-[1200px] bg-bg-1 h-fit py-16 px-128 w-full flex place-content-between rounded-out border border-stroke-1 backdrop-blur-main sticky top-[48px]">
-          <Image
-            src={"/brand/mark.svg"}
-            width={32}
-            height={32}
-            alt="HQL Logo"
-          />
+          <Link href={"/"}>
+            <Image
+              src={"/brand/mark.svg"}
+              width={32}
+              height={32}
+              alt="HQL Logo"
+            />
+          </Link>
         </nav>
         {children}
       </body>
